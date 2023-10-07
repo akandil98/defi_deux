@@ -1,3 +1,4 @@
+import 'package:defi_deux/features/post_details/post_details_injector.dart';
 import 'package:get_it/get_it.dart';
 
 GetIt sl = GetIt.instance;
@@ -5,6 +6,7 @@ GetIt sl = GetIt.instance;
 class AppInjector {
   static Future<void> init() async {
     // Features Injectors
+    PostDetailsInjector.init();
 
     // Core
     // sl.registerLazySingleton<NetworkInfo>(

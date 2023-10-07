@@ -1,13 +1,17 @@
 import 'package:defi_deux/core/utils/utils.dart';
+import 'package:defi_deux/features/post_details/presentation/cubit/post_details_cubit.dart';
+
 import 'package:flutter/material.dart';
 
 class FloatingActionButtonWidget extends StatelessWidget {
+  final PostDetailsCubit cubit;
   final int score;
   final int comments;
   const FloatingActionButtonWidget({
     super.key,
     required this.score,
     required this.comments,
+    required this.cubit,
   });
 
   @override
@@ -36,7 +40,9 @@ class FloatingActionButtonWidget extends StatelessWidget {
         ),
         // comments
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            cubit.showCommentsFun(showComments: true);
+          },
           icon: const Icon(
             Icons.mode_comment_outlined,
             color: AppColors.iconColor,
