@@ -1,20 +1,38 @@
+import 'package:bloc/bloc.dart';
+import 'package:defi_deux/app_injector.dart';
+import 'package:defi_deux/core/utils/my_bloc_observer.dart';
+import 'package:defi_deux/isar_service.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart' show SystemChrome, DeviceOrientation;
+import 'app.dart';
+import 'core/utils/app_constants.dart';
 
-void main() {
-  runApp(const MainApp());
-}
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await AppInjector.init();
+  await IsarService().cleanDb();
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+  Bloc.observer = MyBlocObserver();
+  const arLocale = Locale(AppConstants.arCode);
+  const enLocale = Locale(AppConstants.enCode);
 
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
-    );
-  }
+  /// Lock device orientation to portrait
+  await SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
+  runApp(
+    EasyLocalization(
+      supportedLocales: const [
+        arLocale,
+        enLocale,
+      ],
+      path: AppConstants.languagePath,
+      fallbackLocale: enLocale,
+      saveLocale: true,
+      startLocale: enLocale,
+      child: const App(),
+    ),
+  );
 }
