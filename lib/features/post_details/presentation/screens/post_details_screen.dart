@@ -28,7 +28,7 @@ class _PostDetailsScreenState extends State<PostDetailsScreen> {
     });
     _controller.setLooping(true);
     _controller.initialize().then((_) => setState(() {}));
-    // _controller.play();
+    _controller.play();
   }
 
   @override
