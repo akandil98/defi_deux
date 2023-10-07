@@ -4,12 +4,12 @@ import '../../core/utils/utils.dart';
 
 final class AppTheme {
   AppTheme._();
-  static TextTheme lightTextTheme = const TextTheme();
+  static TextTheme darkTextTheme = const TextTheme();
 
-  static ThemeData lightTheme() {
+  static ThemeData darkTheme() {
     return ThemeData(
       useMaterial3: true,
-      brightness: Brightness.light,
+      brightness: Brightness.dark,
       scaffoldBackgroundColor: AppColors.scaffoldBackgroundColor,
       // fontFamily: AppConstants.appFontFamily,
       appBarTheme: AppBarTheme(
@@ -17,14 +17,14 @@ final class AppTheme {
         elevation: 0,
         shadowColor: Colors.transparent,
         backgroundColor: Colors.transparent,
-        titleTextStyle: AppTextStyles.medium23.copyWith(
+        titleTextStyle: AppTextStyles.small14.copyWith(
           color: AppColors.textColor1,
-          fontWeight: FontWeight.w600,
+          fontWeight: FontWeight.w400,
           // fontFamily: AppConstants.appFontFamily,
         ),
         systemOverlayStyle: const SystemUiOverlayStyle(
-          statusBarColor: AppColors.scaffoldBackgroundColor,
-          statusBarIconBrightness: Brightness.dark, // For Android (dark icons)
+          statusBarColor: Colors.transparent,
+          statusBarIconBrightness: Brightness.light, // For Android (dark icons)
           statusBarBrightness: Brightness.light, // For iOS (dark icons)
         ),
       ),

@@ -27,7 +27,7 @@ class App extends StatelessWidget {
           );
         },
         debugShowCheckedModeBanner: false,
-        theme: AppTheme.lightTheme(),
+        theme: AppTheme.darkTheme(),
         onGenerateRoute: RouteGenerator.getRoute,
       ),
     );
