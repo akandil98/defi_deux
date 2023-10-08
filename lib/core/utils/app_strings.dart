@@ -14,4 +14,11 @@ final class AppStrings {
   static const String userName = "Challenge-Hunter";
   static const String videoDescription =
       "In this captivating 3-second video clip, a busy bee gracefully hovers over a vibrant and fragrant wildflower. The bee's delicate wings flap with precision as it collects nectar, showcasing the remarkable beauty and vital role of these industrious pollinators in our natural world.";
+  static const String best = "Best";
+  static const String top = "Top";
+  static const String neww = "New";
+  static const String controversial = "Controversial";
+  static const String old = "Old";
+  static const String qa = "Q&A";
+  static const String sortCommentsBy = "SORT COMMENTS BY";
 }
